@@ -129,8 +129,6 @@
     
     NSSize wantedSize = [self.title boundingRectWithSize:marginedFrame options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[NSFont systemFontOfSize:13.0f]}].size;
     
-    NSLog(@"%@", NSStringFromSize(wantedSize));
-    
     if(marginedFrame.width < wantedSize.width){
         return YES;
     }else{

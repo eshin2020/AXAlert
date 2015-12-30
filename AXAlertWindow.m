@@ -210,6 +210,8 @@
 
     [self setFrame:centerScreenRectFromSize(NSMakeSize(self.frame.size.width, currentStackHeight)) display:YES];
     [windowBackground setFrame:zeroRectWithSize(self.frame.size)];
+
+        
 }
 
 -(void)close{
@@ -218,9 +220,15 @@
     
 }
 
+-(void)center{
+    
+    [self setFrame:centerScreenRectFromSize(self.frame.size) display:YES];
+    
+}
+
 static NSRect centerScreenRectFromSize(NSSize size){
     
-    NSSize screenSize = [[NSScreen mainScreen] frame].size;
+    NSSize screenSize = [[NSScreen mainScreen] visibleFrame].size;
     
     return centerRectOfSize(screenSize, size);
     
@@ -233,7 +241,7 @@ static NSRect zeroRectWithSize(NSSize size){
 }
 
 static NSRect centerRectOfSize(NSSize parent, NSSize child){
-    return NSMakeRect(parent.width/2 - child.width/2, parent.height/2 - parent.height/2 , child.width, child.height);
+    return NSMakeRect((parent.width-child.width)/2, (parent.height-child.height)/2, child.width, child.height);
 }
 
 

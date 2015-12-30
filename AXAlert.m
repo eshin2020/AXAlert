@@ -68,7 +68,29 @@
 
 -(NSInteger)runModal{
     
+    if (self.shouldBlackout) {
+    
+    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, [[NSScreen mainScreen] frame].size.width, [[NSScreen mainScreen] frame].size.height) styleMask:(NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSFullSizeContentViewWindowMask) backing:NSBackingStoreBuffered defer:YES];
+    
+    [window setOpaque:NO];
+    
+    [[[window standardWindowButton:NSWindowCloseButton] superview] setHidden:YES];
+    
+    [window setBackgroundColor:[NSColor colorWithWhite:0 alpha:0.5]];
+    
+    [window setLevel:8];
+    
+    [window makeKeyAndOrderFront:nil];
+    
+    [window setIgnoresMouseEvents:YES];
+    
+    [window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+    
+    }
+        
     [self.alertWindow layout];
+    
+    [self.alertWindow center];
     
     return [NSApp runModalForWindow:self.alertWindow];
     

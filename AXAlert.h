@@ -22,6 +22,8 @@
     
     NSVisualEffectView *windowBackground;
     
+    NSWindow *blackoutWindow;
+    
 }
 
 NS_ASSUME_NONNULL_BEGIN
@@ -37,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSColor *tint;
 
 @property BOOL usesCustomAccessoryView;
+
+@property BOOL shouldBlackout;
 
 -(instancetype)initWithTitle:(NSString *)title informativeText:(NSString *)infoText;
 
