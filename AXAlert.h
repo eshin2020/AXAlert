@@ -22,8 +22,6 @@
     
     NSVisualEffectView *windowBackground;
     
-    NSWindow *blackoutWindow;
-    
 }
 
 NS_ASSUME_NONNULL_BEGIN
